@@ -4,10 +4,10 @@ R='\e[31m'
 G='\e[32m'
 Y='\e[33m'
 W='\e[0m'
-LOGS_FOLDER="/etc/var/logs/"
+LOGS_FOLDER="/var/log/shell-script"
 LOGS_FILENAME=$(echo $0 | cut -d "." -f1)
-LOG_NAME=$LOGS_FOLDER/$LOGS_FILENAME.log
-mkdir -p $LOG_NAME
+LOG_NAME="$LOGS_FOLDER/$LOGS_FILENAME.log"
+mkdir -p $LOGS_FOLDER
 if [ $USERID -ne 0 ]; then
     echo -e "$R ERROR::Please run the script wiht roor Previleges $W"
     exit 1

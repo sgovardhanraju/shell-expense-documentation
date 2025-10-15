@@ -19,13 +19,9 @@ VALIDATE(){
     echo -e "$G Installing $2 SUCCESS $W" &>>$LOG_NAME
     fi
 }
-dnf list installed mysql-server
-if [ $? -ne 0 ]; then
-    dnf install mysql-server -y &>>$LOG_NAME
-    VALIDATE $? "mysql-server"
-    else
-    echo -e "$Y mysql-server already exist ...$R SKIPPING $W" &>>$LOG_NAME
-fi
+
+dnf install mysql-server -y &>>$LOG_NAME
+VALIDATE $? "mysql-server"
 systemctl enable mysqld &>>$LOG_NAME
 VALIDATE $? "enabled mysqld"
 systemctl start mysqld &>>$LOG_NAME

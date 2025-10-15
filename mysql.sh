@@ -7,12 +7,12 @@ W='\e[0m'
 LOGS_FOLDER="/etc/var/logs/"
 LOGS_FILENAME=$(echo $0 | cut -d "." -f1)
 LOG_NAME=$LOGS_FOLDER/$LOGS_FILENAME.log
-if [ $USERID -ne 0 ]l then
+if [ $USERID -ne 0 ]l; then
     echo -e "$R ERROR::Please run the script wiht roor Previleges $W"
     exit 1
 fi
 VALIDATE(){
-    if [ $1 -ne 0 ]l; then
+    if [ $1 -ne 0 ]; then
     echo -e "$R Installing $2 is FALIURE $W" &>>$LOG_NAME
     exit 1
     else

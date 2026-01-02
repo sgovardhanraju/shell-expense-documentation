@@ -12,12 +12,12 @@ if [ $USERID -ne 0 ]; then
     echo -e "$R ERROR::Please run the script wiht roor Previleges $W"
     exit 1
 fi
-VALIDATE(){
+VALIDATE () { # functions receive inputs through args just like shell script args
     if [ $1 -ne 0 ]; then
-    echo -e "$R Installing $2 is FALIURE $W" &>>$LOG_NAME
-    exit 1
+        echo -e " $2..... $R is failure $N" 
+        exit 1
     else
-    echo -e "$G Installing $2 SUCCESS $W" &>>$LOG_NAME
+        echo -e " $2..... $G is SUCCESS $N" 
     fi
 }
 
